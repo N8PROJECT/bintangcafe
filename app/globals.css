@@ -863,3 +863,42 @@ button {
 .cta-band .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.14);
 }
+
+/* temple silhouette backdrop (flush ke pojok bawah) */
+.has-temple {
+  position: relative;
+  overflow: hidden;
+}
+.has-temple > .container {
+  position: relative;
+  z-index: 1;
+}
+.temple {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.temple-in {
+  position: absolute;
+  inset: 0;
+}
+.temple-side {
+  position: absolute;
+  bottom: -2px;
+  width: var(
+    --temple-size,
+    clamp(140px, 28vw, 560px)
+  ); /* ukuran siluet: ubah di sini */
+  aspect-ratio: 372/563; /* rasio candi saja, tanpa ruang kosong */
+  background: url("/images/asset-1.png") no-repeat;
+  background-size: 477% auto;
+}
+.temple-side.l {
+  left: 0;
+  background-position: 0.36% 63.9%;
+}
+.temple-side.r {
+  right: 0;
+  background-position: 99.64% 63.9%;
+}

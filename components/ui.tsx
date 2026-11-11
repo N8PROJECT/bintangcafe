@@ -273,3 +273,33 @@ export const Icon = ({ name }: { name: keyof typeof I }) => (
     {I[name]}
   </svg>
 );
+
+export function TempleBackdrop({
+  tone = "light",
+}: {
+  tone?: "light" | "dark";
+}) {
+  const o = tone === "dark" ? 0.28 : 1; // di background coklat gelap dibuat lebih pudar
+  const vp = { once: false, amount: 0.05 } as const;
+  const t = { duration: 0.9, ease: EASE };
+  return (
+    <div className="temple" aria-hidden="true">
+      <div className="temple-in">
+        <motion.span
+          className="temple-side l"
+          initial={{ opacity: 0, x: -70 }}
+          whileInView={{ opacity: o, x: 0 }}
+          viewport={vp}
+          transition={t}
+        />
+        <motion.span
+          className="temple-side r"
+          initial={{ opacity: 0, x: 70 }}
+          whileInView={{ opacity: o, x: 0 }}
+          viewport={vp}
+          transition={t}
+        />
+      </div>
+    </div>
+  );
+}
